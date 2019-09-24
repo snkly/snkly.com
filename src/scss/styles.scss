@@ -1,0 +1,41 @@
+@import 'base';
+
+.container {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: $space-lg $space-md 0;
+  position: relative;
+}
+
+.profile {
+  margin: 0 auto;
+}
+
+.projects {
+  .projects__item {
+    ul {
+      @include flex-container;
+
+      li {
+        @include dotted-border;
+        border-radius: 2px;
+        margin: $space;
+        padding: $space;
+      }
+    }
+  }
+}
+
+.contact-links {
+  ul {
+    @include flex-container;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+}

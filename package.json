@@ -1,10 +1,10 @@
 {
   "name": "snkly.com",
+  "repository": "https://github.com/snkly/snkly.com.git",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "author": "Sean K",
-  "license": "ISC",
+  "description": "My personal site",
+  "author": "Sean Keeley",
+  "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",

@@ -8,14 +8,13 @@ $space-md: $space-sm * 2; // 24px
 $space-lg: $space-md * 2; // 48px
 
 @mixin flex-container {
-  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 @mixin dotted-border {
-  border: 1px dotted rgba(55,55,55,0.2);
+  border: 1px dotted rgba(55,55,55,0.4);
 }
 
 html {
@@ -66,19 +65,20 @@ body {
   font-style: normal;
 }
 
-h1,
-h2 {
-  font-weight: 300;
+h1, h2, h3 {
   margin: 0;
 }
 
 h1 {
   font-size: 4rem;
-  font-weight: 400;
 }
 
 h2 {
-  font-size: 2.75rem;
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.125rem;
 }
 
 p {
@@ -96,4 +96,5 @@ a {
 }
 
 // @media (min-width: 768px) {}
+// @media (min-width: 960px) {}
 // @media (min-width: 1024px) {}

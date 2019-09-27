@@ -5,16 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>snkly dot com</title>
+  <title>Sean Keeley | Portland, OR</title>
   <link rel="stylesheet" href="css/styles.min.css">
 </head>
 
 <body>
   <div class="container">
 
-    <section class="profile">
-      <h1>Sean Keeley</h1>
-      <h2>Front-end Developer</h2>
+    <section class="header">
+        <h1>Sean Keeley</h1>
+        <ul id="snkly" class="header__logo condensed">
+          <li>s</li>
+          <li class="vowel">e</li>
+          <li class="vowel">a</li>
+          <li>n</li>
+          <li class="kay">k</li>
+          <li class="vowel">e</li>
+          <li class="vowel">e</li>
+          <li>l</li>
+          <li class="vowel">e</li>
+          <li>y</li>
+        </ul>
+        <h2>Web Developer, Portland Oregon</h2>
     </section>
 
     <hr></hr>
@@ -23,40 +35,39 @@
       <div class="projects__item">
         <h3>Mirrored Movie Poster Bot</h3>
         <a href="https://twitter.com/MirrorMovieBot">twitter.com/MirroredMovieBot</a>
-        <p>A bot that finds a random movie poster and generates symmetrical ("mirrored") versions of itself by flipping and flopping down the middle vertically.</p>
+        <p>A Twitter bot that finds a random movie poster and generates symmetrical "mirrored" versions itself, with posts daily at 12PM CT.</p>
         <ul>
           <li>Node.js</li>
           <li>MovieDB API</li>
           <li>Twitter API</li>
           <li>ImageMagick</li>
-          <li>Heroku.js</li>
+          <li>Heroku</li>
         </ul>
       </div>
 
       <div class="projects__item">
-        <h3>Black Metal Art Bot</h3>
+        <h3>Album Art Bot</h3>
         <a href="https://twitter.com/blackmetalartx">twitter.com/BlackMetalArtx</a>
-        <p>Random artist/band names, album titles and imagery is gathered from the web using these <a href="https://www.somethingawful.com/photoshop-phriday/create-album-photoshop/">rules</a> and "black metal" inspired album art is born. Possibly the dumbest bot ever!</p>
+        <p>Random artist/band names, album titles and imagery is gathered from the web using these <a href="https://www.somethingawful.com/photoshop-phriday/create-album-photoshop/">rules</a> and "black metal" inspired album art is born.</p>
         <ul>
           <li>Node.js</li>
           <li>Request</li>
           <li>Twitter API</li>
           <li>Cheerio</li>
           <li>ImageMagick, JIMP</li>
-          <li>Heroku.js</li>
+          <li>Heroku</li>
         </ul>
       </div>
 
       <div class="projects__item">
         <h3>Personal site</h3>
-        <a href="https://twitter.com/blackmetalartx">snkly.com</a>
-        <p>Source code for this site. Super simple gulp-based set up with Sass and hot reloading for quick prototyping.</p>
+        <a href="https://github.com/snkly">snkly.com</a>
+        <p>Source code for this site. Simple, straight-forward gulp-based set up with Sass and live reloading for quick front-end prototyping.</p>
         <ul>
           <li>Node.js</li>
           <li>Gulp 4</li>
-          <li>BrowserSync, Live reload</li>
           <li>Sass</li>
-          <li>Hosted on Netlify</li>
+          <li>BrowserSync</li>
         </ul>
       </div>
     </section>
@@ -76,8 +87,23 @@
         </li>
       </ul>
     </section>
-
   </div>
+
+  <script type="text/javascript">
+    var header = document.getElementById("snkly");
+
+    function toggleHeader() {
+      if (this.classList.contains('condensed')) {
+        this.classList.remove("condensed");
+      } else {
+        this.classList.add("condensed");
+      }
+    };
+
+    header.addEventListener( 'click', toggleHeader);
+
+    setTimeout(function(){ document.getElementById("snkly").classList.remove("condensed"); }, 2000);
+  </script>
 </body>
 
 </html>

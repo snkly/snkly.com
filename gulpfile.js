@@ -8,6 +8,8 @@ const browserSync = require('browser-sync').create();
 // File paths
 const styleSrc = 'src/scss/*.scss';
 const styleDist = './dist/css/';
+const jsSrc = 'src/js/*.js';
+const jsDist = './dist/js/';
 const htmlSrc = 'src/*.html';
 const htmlDist = './dist/';
 
@@ -39,15 +41,31 @@ function css(done) {
       outputStyle: 'compressed'
     }))
     .on('error', console.error.bind(console))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
+    .pipe(autoprefixer())
     .pipe(rename({
       suffix: '.min'
     }))
     .pipe(sourcemaps.write('./'))
     .pipe(dest(styleDist))
+    .pipe(browserSync.stream())
+  done();
+};
+
+// Build JS
+function css(done) {
+  src(jsSrc)
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      errorLogToConsole: true,
+      outputStyle: 'compressed'
+    }))
+    .on('error', console.error.bind(console))
+    .pipe(autoprefixer())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(dest(jsDist))
     .pipe(browserSync.stream())
   done();
 };

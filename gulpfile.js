@@ -1,13 +1,14 @@
 const {src, dest, task, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
+const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 
 // File paths
-const styleSrc = 'src/scss/*.scss';
+const styleSrc = 'src/scss/styles.scss';
 const styleDist = './dist/css/';
 const jsSrc = 'src/js/*.js';
 const jsDist = './dist/js/';
@@ -18,6 +19,10 @@ const htmlDist = './dist/';
 const styleWatch = 'src/scss/*.scss';
 const jsWatch = 'src/js/*.js';
 const htmlWatch = 'src/*.html';
+
+function clean() {
+  return del(['dist']);
+}
 
 // Server
 function server() {
@@ -58,9 +63,7 @@ function js(done) {
   src(jsSrc)
     .pipe(uglify())
     .on('error', console.error.bind(console))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    .pipe(rename("script.js"))
     .pipe(dest(jsDist))
     .pipe(browserSync.stream())
   done();
@@ -83,8 +86,9 @@ function watchFiles() {
 }
 
 // Tasks
+task('clean', clean);
 task('css', css);
 task('js', js);
 task('html', html);
 //task('watch', parallel(browser_sync, watch_files));
-task('default', series(html, parallel(css, js), parallel(server, watchFiles)));
+task('default', series(clean, html, parallel(css, js), parallel(server, watchFiles)));

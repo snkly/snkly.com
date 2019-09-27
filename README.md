@@ -1,6 +1,6 @@
 # snkly.com
 
-The code behind my simple personal site - thanks for stopping by :)
+ Simple, straight-forward gulp-based set up with Sass and live reloading for quick front-end prototyping.
 
 ```
 npm install

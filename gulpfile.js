@@ -92,3 +92,4 @@ task('js', js);
 task('html', html);
 //task('watch', parallel(browser_sync, watch_files));
 task('default', series(clean, html, parallel(css, js), parallel(server, watchFiles)));
+task('cook', series(clean, html, parallel(css, js)));

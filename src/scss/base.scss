@@ -46,7 +46,9 @@ hr {
   border-block-start: none;
 }
 
-section + section, section + hr, hr + section {
+section + section,
+section + hr,
+hr + section {
   margin: 32px 0;
 }
 
@@ -69,12 +71,13 @@ h1, h2, h3 {
   margin: 0;
 }
 
-h1 {
+/*h1 {
   font-size: 4rem;
-}
+}*/
 
 h2 {
   font-size: 1.25rem;
+  white-space: pre-line;
 }
 
 h3 {
@@ -94,7 +97,3 @@ a {
     border-color: $black;
   }
 }
-
-// @media (min-width: 768px) {}
-// @media (min-width: 960px) {}
-// @media (min-width: 1024px) {}

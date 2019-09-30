@@ -33,7 +33,7 @@
     cursor: w-resize;
     display: inline-block;
     float: left;
-    font-size: 3.5rem;
+    font-size: 3.125rem;
     max-width: 2em;
     opacity: 1;
     transition: all 0.25s ease-in-out;
@@ -98,6 +98,17 @@
   }
 }
 
+// Tiny phones, iPhone 5/SE
+@media (min-width: 350px) {
+  .header .header__logo li {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    white-space: nowrap;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 960px;
@@ -107,6 +118,10 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    .projects__item {
+      -ms-flex: 0 0 25%;
+    }
 
     .projects__item + .projects__item {
       margin: 0 $space-sm;

@@ -2,7 +2,7 @@
 
 .container {
   display: block;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   max-width: 600px;
   padding: $space-lg $space-md 0;
@@ -54,6 +54,12 @@
   }
 }
 
+.headline {
+  p {
+    font-size: 1.125rem;
+  }
+}
+
 .projects {
   @include flex-container;
   flex-direction: column;
@@ -93,8 +99,8 @@
     @include flex-container;
     justify-content: space-around;
 
-    li {
-      font-size: 1.125rem;
+    li a {
+      font-size: .95rem;
     }
   }
 }

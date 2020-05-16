@@ -12,11 +12,11 @@
   <meta name="author" content="Sean Keeley">
 
   <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="stylesheet" href="css/sprite.css">
 </head>
 
 <body>
   <div class="container">
-
     <section class="header">
       <h1>Sean Keeley</h1>
       <ul id="snkly" class="header__logo condensed">
@@ -31,27 +31,24 @@
         <li class="vowel">e</li>
         <li>y</li>
       </ul>
-      <h2>Front-End Web Developer<br> Portland, Oregon</h2>
+      <h2>Front-End Web Developer</h2>
     </section>
-
-    <hr></hr>
-
+    <hr />
     <section class="headline">
-      <p>Hey, I'm Sean. I'm a developer from Dallas based in Portland and you've made it to my site where I showcase web-based projects I work on in my free time. Thanks for stopping by!</p>
+      <p>Hey there, I'm Sean. I'm a developer from Dallas based in Portland, Oregon. You've made it to my site where I
+        showcase web-based projects I work on in my free time. Thanks for stopping by!</p>
     </section>
-
-    <hr></hr>
-
+    <hr />
     <section class="projects">
       <div class="projects__item">
         <h3>Study Mushrooms</h3>
         <a href="https://study-mushrooms.netlify.app/">study-mushrooms.netlify.app</a>
-        <p>"Search mushroom species and get data from around the web!" React app built to learn about Fungi, inspired by hikes in and around PDX.</p>
+        <p>Search mushroom species and get data from around the web. React app built to learn about fungi, inspired by
+          PNW hikes.</p>
         <ul>
           <li>React/Redux</li>
           <li>Semantic UI</li>
           <li>iNaturalist API</li>
-          <li>GBIF API</li>
           <li>Wikipedia API</li>
           <li>Netlify</li>
         </ul>
@@ -59,7 +56,8 @@
       <div class="projects__item">
         <h3>Mirrored Movie Poster Bot</h3>
         <a href="https://twitter.com/MirrorMovieBot">twitter.com/MirroredMovieBot</a>
-        <p>A Twitter bot that finds a random movie poster and generates symmetrical "mirrored" versions of itself, with posts daily at 12PM CT.</p>
+        <p>A Twitter bot that finds a random movie poster and generates symmetrical mirrored versions of itself. Posts
+          daily at 12PM CT.</p>
         <ul>
           <li>Node.js</li>
           <li>MovieDB API</li>
@@ -71,10 +69,10 @@
       <div class="projects__item">
         <h3>Album Art Bot</h3>
         <a href="https://twitter.com/blackmetalartx">twitter.com/BlackMetalArtx</a>
-        <p>Random artist/band names, album titles and imagery is gathered from the web at random and "black metal" inspired album art is born.</p>
+        <p>Random artist/band names, album titles and imagery are gathered from the web at random and black metal
+          inspired album art is born.</p>
         <ul>
           <li>Node.js</li>
-          <li>Request</li>
           <li>Twitter API</li>
           <li>Cheerio</li>
           <li>ImageMagick, JIMP</li>
@@ -82,27 +80,42 @@
         </ul>
       </div>
     </section>
-    
-    <hr></hr>
-
     <section class="contact-links">
-      <ul>
-        <li>
-          <a href="mailto:snklydevel@gmail.com">email</a>
-        </li>
-        <li>
-          <a href="https://github.com/snkly">github</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/sean-keeley-41613b56/">linkedin</a>
-        </li>
-        <li>
-          <a href="https://github.com/snkly/snkly.com">source</a>
-        </li>
-      </ul>
+      <div class="contact-links__container">
+        <span class="contact_links__header">
+          Got an idea? Let's work together:
+          <hr />
+        </span>
+        <ul>
+          <li>
+            <a href="mailto:snklydevel@gmail.com">
+              <i class="svg-email svg-email-dims"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/snkly">
+              <i class="svg-github svg-github-dims "></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/sean-keeley-41613b56/">
+              <i class="svg-linkedin svg-linkedin-dims"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/snkly/snkly.com">
+              <i class="svg-source svg-source-dims"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://goo.gl/maps/L6zWgVWGwUmLS3dH7">
+              <i class="svg-pin svg-pin-dims"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
   </div>
-
   <script src="./js/script.js"></script>
 </body>
 

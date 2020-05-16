@@ -1,24 +1,28 @@
-const {src, dest, task, watch, series, parallel } = require('gulp');
-const sass = require('gulp-sass');
-const rename = require('gulp-rename');
-const del = require('del');
-const autoprefixer = require('gulp-autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
-const browserSync = require('browser-sync').create();
+const {src, dest, task, watch, series, parallel } = require('gulp'),
+  sass = require('gulp-sass'),
+  rename = require('gulp-rename'),
+  del = require('del'),
+  autoprefixer = require('gulp-autoprefixer'),
+  sourcemaps = require('gulp-sourcemaps'),
+  uglify = require('gulp-uglify'),
+  browserSync = require('browser-sync').create(),
+  svgSprite = require('gulp-svg-sprite');
 
 // File paths
-const styleSrc = 'src/scss/styles.scss';
-const styleDist = './dist/css/';
-const jsSrc = 'src/js/*.js';
-const jsDist = './dist/js/';
-const htmlSrc = 'src/*.html';
-const htmlDist = './dist/';
+const dist = './dist/',
+  styleSrc = 'src/scss/styles.scss',
+  styleDist = './dist/css/',
+  jsSrc = 'src/js/*.js',
+  jsDist = './dist/js/',
+  htmlSrc = 'src/*.html',
+  htmlDist = dist,
+  svgSrc = 'src/icons/*.svg',
+  svgDist = dist;
 
 // Watch paths
-const styleWatch = 'src/scss/*.scss';
-const jsWatch = 'src/js/*.js';
-const htmlWatch = 'src/*.html';
+const styleWatch = 'src/scss/*.scss',
+  jsWatch = 'src/js/*.js',
+  htmlWatch = 'src/*.html';
 
 function clean() {
   return del(['dist']);
@@ -77,6 +81,32 @@ function html(done) {
   done();
 };
 
+// Build SVG's
+function svg(done) {
+  src(svgSrc)
+    .pipe(svgSprite({
+      mode: {
+        css: {
+          render: {
+            css: true
+          },
+          example: true
+        }
+      },
+      shape: {
+        dimension: {
+          attributes: true,
+          maxWidth: 32
+        },
+        spacing: {
+          padding: [6, 3, 6, 3]
+        }
+      }
+    }))
+    .pipe(dest(svgDist));
+  done();
+}
+
 // Watch files
 function watchFiles() {
   watch(styleWatch, series(css, reload));
@@ -90,6 +120,7 @@ task('clean', clean);
 task('css', css);
 task('js', js);
 task('html', html);
+task('svg', svg);
 //task('watch', parallel(browser_sync, watch_files));
-task('default', series(clean, html, parallel(css, js), parallel(server, watchFiles)));
-task('cook', series(clean, html, parallel(css, js)));
+task('default', series(clean, html, parallel(css, js, svg), parallel(server, watchFiles)));
+task('cook', series(clean, html, parallel(css, js, svg)));

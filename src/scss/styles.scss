@@ -1,8 +1,9 @@
 @import 'base';
+//@import '../sprite'
 
 .container {
   display: block;
-  height: 100vh;
+  height: 100vh; 
   margin: 0 auto;
   max-width: 600px;
   padding: $space-lg $space-md 0;
@@ -32,7 +33,6 @@
   .header__logo li {
     color: $black;
     cursor: w-resize;
-    display: inline-block;
     float: left;
     font-size: 3.125rem;
     max-width: 2em;
@@ -65,7 +65,7 @@
   flex-direction: column;
 
   .projects__item {
-    @include dotted-border;
+    @include bordered;
     padding: $space-md;
 
     h3 {
@@ -76,7 +76,7 @@
       @include flex-container;
 
       li {
-        @include dotted-border;
+        @include bordered;
         border-radius: 2px;
         font-size: .85rem;
         margin: $space;
@@ -95,13 +95,19 @@
 }
 
 .contact-links {
+
   ul {
     @include flex-container;
+    align-items: center;
     justify-content: space-around;
 
     li a {
       font-size: .95rem;
     }
+  }
+
+  .contact_links__header {
+    display: none; 
   }
 }
 
@@ -137,6 +143,19 @@
       &:last-child {
         margin: 0;
       }
+    }
+  }
+  
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+
+    .contact-links__container {
+      align-self: flex-end; 
+      margin-right: 20px;
+    }
+    .contact_links__header {
+      display: block; 
     }
   }
 }
